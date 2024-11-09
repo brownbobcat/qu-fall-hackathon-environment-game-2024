@@ -2,6 +2,10 @@
     <app-nav />
 
     <main>
-        
+        @for (item of items; track $index) {
+            <li>
+                <ul>{{item.name}}</ul>
+            </li>
+        }
     </main>
 </div>

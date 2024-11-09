@@ -2,3 +2,7 @@ main {
     height: calc(100vh - 50px);
     padding: 1rem;
 }
+
+li {
+    list-style: none;
+}

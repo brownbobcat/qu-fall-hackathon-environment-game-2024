@@ -1,0 +1,32 @@
+.wrapper {
+    display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 20px;
+grid-row-gap: px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 1rem;
+}
+
+.image {
+    background-image: url('../../../../public/home-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.mdc-button {
+    /* padding: 4rem 0; */
+    width: 130px;
+    height: 50px;
+    font-size: 1.2em;
+    margin-top: 1rem;
+}
