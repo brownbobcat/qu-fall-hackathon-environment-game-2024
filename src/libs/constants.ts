@@ -1,66 +1,110 @@
+
 import { WasteItem } from './types';
 
 export const availableItems: WasteItem[] = [
-    { 
-      id: 1, 
-      name: 'Plastic Bottle', 
-      type: 'recyclable',
-      image: 'assets/images/plastic-bottle.png',
-      points: 10
-    },
-    { 
-      id: 2, 
-      name: 'Food Waste', 
-      type: 'trash',
-      image: 'assets/images/food-waste.png',
-      points: 5
-    },
-    { 
-      id: 3, 
-      name: 'Paper', 
-      type: 'recyclable',
-      image: 'assets/images/paper.png',
-      points: 10
-    },
-    { 
-      id: 4, 
-      name: 'Glass Bottle', 
-      type: 'recyclable',
-      image: 'assets/images/glass-bottle.png',
-      points: 15
-    },
-  ];
+  { id: 1, name: 'Plastic Bottle', type: 'recyclable', image: 'assets/images/plastic-bottle.png', points: 10 },
+  { id: 2, name: 'Food Waste', type: 'trash', image: 'assets/images/food-waste.png', points: 5 },
+  { id: 3, name: 'Paper', type: 'recyclable', image: 'assets/images/paper.png', points: 10 },
+  { id: 4, name: 'Glass Bottle', type: 'recyclable', image: 'assets/images/glass-bottle.png', points: 15 },
+  { id: 5, name: 'Aluminum Can', type: 'recyclable', image: 'assets/images/aluminum-can.png', points: 12 },
+  { id: 6, name: 'Old Clothes', type: 'trash', image: 'assets/images/old-clothes.png', points: 8 },
+  { id: 7, name: 'Electronic Waste', type: 'trash', image: 'assets/images/electronic-waste.png', points: 20 },
+  { id: 8, name: 'Cardboard', type: 'recyclable', image: 'assets/images/cardboard.png', points: 5 },
+  { id: 9, name: 'Battery', type: 'trash', image: 'assets/images/battery.png', points: 25 },
+  { id: 10, name: 'Glass Jar', type: 'recyclable', image: 'assets/images/glass-jar.png', points: 15 },
+  { id: 11, name: 'Styrofoam', type: 'trash', image: 'assets/images/styrofoam.png', points: 5 },
+  { id: 12, name: 'Organic Waste', type: 'trash', image: 'assets/images/organic-waste.png', points: 3 },
+  { id: 13, name: 'Metal Scrap', type: 'recyclable', image: 'assets/images/metal-scrap.png', points: 18 },
+  { id: 14, name: 'Used Paper Towels', type: 'trash', image: 'assets/images/used-paper-towels.png', points: 2 },
+  { id: 15, name: 'Plastic Bags', type: 'trash', image: 'assets/images/plastic-bags.png', points: 6 },
+  { id: 16, name: 'Old Newspapers', type: 'recyclable', image: 'assets/images/old-newspapers.png', points: 7 },
+  { id: 17, name: 'Tetra Pak', type: 'recyclable', image: 'assets/images/tetra-pak.png', points: 10 },
+  { id: 18, name: 'Magazines', type: 'recyclable', image: 'assets/images/magazines.png', points: 6 },
+  { id: 19, name: 'Soda Cans', type: 'recyclable', image: 'assets/images/soda-cans.png', points: 8 },
+  { id: 20, name: 'Plastic Containers', type: 'recyclable', image: 'assets/images/plastic-containers.png', points: 5 },
+  { id: 21, name: 'Food Packaging', type: 'trash', image: 'assets/images/food-packaging.png', points: 4 },
+  { id: 22, name: 'Plastic Cups', type: 'recyclable', image: 'assets/images/plastic-cups.png', points: 7 },
+  { id: 23, name: 'Plastic Lids', type: 'recyclable', image: 'assets/images/plastic-lids.png', points: 6 },
+  { id: 24, name: 'Used Rubber Bands', type: 'trash', image: 'assets/images/rubber-bands.png', points: 1 },
+  { id: 25, name: 'Used Ink Cartridges', type: 'trash', image: 'assets/images/ink-cartridges.png', points: 5 },
+  { id: 26, name: 'Plastic Straws', type: 'trash', image: 'assets/images/plastic-straws.png', points: 2 },
+  { id: 27, name: 'Nylon Bags', type: 'trash', image: 'assets/images/nylon-bags.png', points: 5 },
+  { id: 28, name: 'Broken Furniture', type: 'trash', image: 'assets/images/broken-furniture.png', points: 10 },
+  { id: 29, name: 'Used Shoes', type: 'trash', image: 'assets/images/used-shoes.png', points: 6 },
+  { id: 30, name: 'Empty Bottles', type: 'recyclable', image: 'assets/images/empty-bottles.png', points: 5 },
+  { id: 31, name: 'Broken Electronics', type: 'trash', image: 'assets/images/broken-electronics.png', points: 15 },
+  { id: 32, name: 'Used Batteries', type: 'trash', image: 'assets/images/used-batteries.png', points: 20 },
+  { id: 33, name: 'Clamshell Packaging', type: 'recyclable', image: 'assets/images/clamshell-packaging.png', points: 5 },
+  { id: 34, name: 'Plastic Wrap', type: 'trash', image: 'assets/images/plastic-wrap.png', points: 3 },
+  { id: 35, name: 'Broken Mirrors', type: 'trash', image: 'assets/images/broken-mirrors.png', points: 8 },
+  { id: 36, name: 'Used Glasses', type: 'trash', image: 'assets/images/used-glasses.png', points: 4 },
+  { id: 37, name: 'Used Paper Plates', type: 'trash', image: 'assets/images/paper-plates.png', points: 2 },
+  { id: 38, name: 'Cardboard Boxes', type: 'recyclable', image: 'assets/images/cardboard-boxes.png', points: 6 },
+  { id: 39, name: 'Used Plastic Spoons', type: 'trash', image: 'assets/images/plastic-spoons.png', points: 4 },
+  { id: 40, name: 'Disposable Cups', type: 'trash', image: 'assets/images/disposable-cups.png', points: 3 },
+  { id: 41, name: 'Used Toothbrushes', type: 'trash', image: 'assets/images/toothbrushes.png', points: 1 },
+  { id: 42, name: 'Old Tires', type: 'trash', image: 'assets/images/old-tires.png', points: 10 },
+  { id: 43, name: 'Used Books', type: 'recyclable', image: 'assets/images/used-books.png', points: 8 },
+  { id: 44, name: 'Used Paper Napkins', type: 'trash', image: 'assets/images/paper-napkins.png', points: 2 },
+  { id: 45, name: 'Used Clothes Hangers', type: 'trash', image: 'assets/images/clothes-hangers.png', points: 3 },
+  { id: 46, name: 'Used Bottled Drinks', type: 'recyclable', image: 'assets/images/bottled-drinks.png', points: 10 },
+  { id: 47, name: 'Plastic Packaging', type: 'trash', image: 'assets/images/plastic-packaging.png', points: 5 },
+  { id: 48, name: 'Used Plastic Containers', type: 'recyclable', image: 'assets/images/plastic-containers.png', points: 6 },
+  { id: 49, name: 'Used Coffee Cups', type: 'trash', image: 'assets/images/coffee-cups.png', points: 4 },
+  { id: 50, name: 'Old Paint Cans', type: 'trash', image: 'assets/images/paint-cans.png', points: 12 }
+];
 
-  export const Waste = [
-    { 
-        id: 2, 
-        name: 'Food Waste', 
-        type: 'trash',
-        image: 'assets/images/food-waste.png',
-        points: 5
-      },
-  ]
+export const Waste: WasteItem[] = [
+  { id: 2, name: 'Food Waste', type: 'trash', image: 'assets/images/food-waste.png', points: 5 },
+  { id: 6, name: 'Old Clothes', type: 'trash', image: 'assets/images/old-clothes.png', points: 8 },
+  { id: 7, name: 'Electronic Waste', type: 'trash', image: 'assets/images/electronic-waste.png', points: 20 },
+  { id: 9, name: 'Battery', type: 'trash', image: 'assets/images/battery.png', points: 25 },
+  { id: 11, name: 'Styrofoam', type: 'trash', image: 'assets/images/styrofoam.png', points: 5 },
+  { id: 12, name: 'Organic Waste', type: 'trash', image: 'assets/images/organic-waste.png', points: 3 },
+  { id: 14, name: 'Used Paper Towels', type: 'trash', image: 'assets/images/used-paper-towels.png', points: 2 },
+  { id: 15, name: 'Plastic Bags', type: 'trash', image: 'assets/images/plastic-bags.png', points: 6 },
+  { id: 17, name: 'Tetra Pak', type: 'recyclable', image: 'assets/images/tetra-pak.png', points: 10 },
+  { id: 19, name: 'Soda Cans', type: 'recyclable', image: 'assets/images/soda-cans.png', points: 8 },
+  { id: 21, name: 'Food Packaging', type: 'trash', image: 'assets/images/food-packaging.png', points: 4 },
+  { id: 23, name: 'Plastic Lids', type: 'recyclable', image: 'assets/images/plastic-lids.png', points: 6 },
+  { id: 24, name: 'Used Rubber Bands', type: 'trash', image: 'assets/images/rubber-bands.png', points: 1 },
+  { id: 25, name: 'Used Ink Cartridges', type: 'trash', image: 'assets/images/ink-cartridges.png', points: 5 },
+  { id: 26, name: 'Plastic Straws', type: 'trash', image: 'assets/images/plastic-straws.png', points: 2 },
+  { id: 27, name: 'Nylon Bags', type: 'trash', image: 'assets/images/nylon-bags.png', points: 5 },
+  { id: 28, name: 'Broken Furniture', type: 'trash', image: 'assets/images/broken-furniture.png', points: 10 },
+  { id: 29, name: 'Used Shoes', type: 'trash', image: 'assets/images/used-shoes.png', points: 6 },
+  { id: 32, name: 'Used Batteries', type: 'trash', image: 'assets/images/used-batteries.png', points: 20 },
+  { id: 34, name: 'Plastic Wrap', type: 'trash', image: 'assets/images/plastic-wrap.png', points: 3 },
+  { id: 35, name: 'Broken Mirrors', type: 'trash', image: 'assets/images/broken-mirrors.png', points: 8 },
+  { id: 36, name: 'Used Glasses', type: 'trash', image: 'assets/images/used-glasses.png', points: 4 },
+  { id: 37, name: 'Used Paper Plates', type: 'trash', image: 'assets/images/paper-plates.png', points: 2 },
+  { id: 39, name: 'Used Plastic Spoons', type: 'trash', image: 'assets/images/plastic-spoons.png', points: 4 },
+  { id: 40, name: 'Disposable Cups', type: 'trash', image: 'assets/images/disposable-cups.png', points: 3 },
+  { id: 41, name: 'Used Toothbrushes', type: 'trash', image: 'assets/images/toothbrushes.png', points: 1 },
+  { id: 42, name: 'Old Tires', type: 'trash', image: 'assets/images/old-tires.png', points: 10 },
+  { id: 44, name: 'Used Paper Napkins', type: 'trash', image: 'assets/images/paper-napkins.png', points: 2 },
+  { id: 45, name: 'Used Clothes Hangers', type: 'trash', image: 'assets/images/clothes-hangers.png', points: 3 },
+  { id: 47, name: 'Plastic Packaging', type: 'trash', image: 'assets/images/plastic-packaging.png', points: 5 },
+  { id: 49, name: 'Used Coffee Cups', type: 'trash', image: 'assets/images/coffee-cups.png', points: 4 },
+  { id: 50, name: 'Old Paint Cans', type: 'trash', image: 'assets/images/paint-cans.png', points: 12 }
+];
 
-  export const Recycle = [
-    { 
-        id: 1, 
-        name: 'Plastic Bottle', 
-        type: 'recyclable',
-        image: 'assets/images/plastic-bottle.png',
-        points: 10
-      },
-      { 
-        id: 3, 
-        name: 'Paper', 
-        type: 'recyclable',
-        image: 'assets/images/paper.png',
-        points: 10
-      },
-      { 
-        id: 4, 
-        name: 'Glass Bottle', 
-        type: 'recyclable',
-        image: 'assets/images/glass-bottle.png',
-        points: 15
-      },
-  ]
+export const Recycle: WasteItem[] = [
+  { id: 1, name: 'Plastic Bottle', type: 'recyclable', image: 'assets/images/plastic-bottle.png', points: 10 },
+  { id: 3, name: 'Paper', type: 'recyclable', image: 'assets/images/paper.png', points: 10 },
+  { id: 4, name: 'Glass Bottle', type: 'recyclable', image: 'assets/images/glass-bottle.png', points: 15 },
+  { id: 5, name: 'Aluminum Can', type: 'recyclable', image: 'assets/images/aluminum-can.png', points: 12 },
+  { id: 8, name: 'Cardboard', type: 'recyclable', image: 'assets/images/cardboard.png', points: 5 },
+  { id: 10, name: 'Glass Jar', type: 'recyclable', image: 'assets/images/glass-jar.png', points: 15 },
+  { id: 13, name: 'Metal Scrap', type: 'recyclable', image: 'assets/images/metal-scrap.png', points: 18 },
+  { id: 16, name: 'Old Newspapers', type: 'recyclable', image: 'assets/images/old-newspapers.png', points: 7 },
+  { id: 18, name: 'Magazines', type: 'recyclable', image: 'assets/images/magazines.png', points: 6 },
+  { id: 20, name: 'Plastic Containers', type: 'recyclable', image: 'assets/images/plastic-containers.png', points: 5 },
+  { id: 22, name: 'Plastic Cups', type: 'recyclable', image: 'assets/images/plastic-cups.png', points: 7 },
+  { id: 23, name: 'Plastic Lids', type: 'recyclable', image: 'assets/images/plastic-lids.png', points: 6 },
+  { id: 33, name: 'Clamshell Packaging', type: 'recyclable', image: 'assets/images/clamshell-packaging.png', points: 5 },
+  { id: 46, name: 'Used Bottled Drinks', type: 'recyclable', image: 'assets/images/bottled-drinks.png', points: 10 },
+  { id: 48, name: 'Used Plastic Containers', type: 'recyclable', image: 'assets/images/plastic-containers.png', points: 6 }
+];
+
+
