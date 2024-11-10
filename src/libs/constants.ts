@@ -2,7 +2,6 @@
 import { WasteItem } from './types';
 
 export const availableItems: WasteItem[] = [
-  // Recyclable Items (10 items)
   { id: 1, name: 'Plastic Bottle', type: 'recyclable', image: 'assets/images/plastic-bottle.png', points: 5 },
   { id: 2, name: 'Paper', type: 'recyclable', image: 'assets/images/paper.png', points: 5 },
   { id: 3, name: 'Glass Bottle', type: 'recyclable', image: 'assets/images/glass-bottle.png', points: 5 },
@@ -14,7 +13,6 @@ export const availableItems: WasteItem[] = [
   { id: 9, name: 'Magazines', type: 'recyclable', image: 'assets/images/magazines.png', points: 5 },
   { id: 10, name: 'Plastic Containers', type: 'recyclable', image: 'assets/images/plastic-containers.png', points: 5 },
 
-  // Trash Items (10 items)
   { id: 11, name: 'Food Waste', type: 'trash', image: 'assets/images/food-waste.png', points: 5 },
   { id: 12, name: 'Used Paper Towels', type: 'trash', image: 'assets/images/used-paper-towels.png', points: 5 },
   { id: 13, name: 'Plastic Bags', type: 'trash', image: 'assets/images/plastic-bags.png', points: 5 },

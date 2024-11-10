@@ -235,5 +235,47 @@
   .items-section h2 {
     margin-bottom: 10px;
   }
+
+  .celebration-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .celebration-message h2 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+  }
+
+  .celebration-message p {
+    margin-bottom: 1.5rem;
+  }
+
+  .celebration-button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .celebration-button:hover {
+    background: #45a049;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
   
   

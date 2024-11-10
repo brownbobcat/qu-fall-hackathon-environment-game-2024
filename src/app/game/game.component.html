@@ -46,7 +46,7 @@
                     (cdkDropListDropped)="drop($event, 'trash')">
                     @for (item of trashBin; track item.id) {
                       <div class="waste-item" cdkDrag>
-                        <img [src]="item.image" [alt]="item.name">
+                        <!-- <img [src]="item.image" [alt]="item.name"> -->
                         <span>{{ item.name }}</span>
                       </div>
                     }
@@ -76,6 +76,15 @@
                   </div>
                 </div>
               </div>
+
+              @if (isGameComplete) {
+                <div class="celebration-message">
+                  <h2>🎉 Congratulations! 🎉</h2>
+                  <p>You've successfully sorted all items and achieved a perfect score!</p>
+                  <p>Score: {{ currentScore }}/{{ totalPossibleScore }}</p>
+                  <button class="celebration-button" (click)="resetGame()">Play Again</button>
+                </div>
+              }
       
               <!-- Available Items -->
               <div class="items-section">

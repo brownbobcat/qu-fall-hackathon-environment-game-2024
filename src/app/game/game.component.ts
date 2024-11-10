@@ -9,7 +9,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { availableItems } from '../../libs/constants';
 import { WasteItem } from '../../libs/types';
-import { NgOptimizedImage } from '@angular/common'
+import confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-game',
@@ -20,12 +20,13 @@ import { NgOptimizedImage } from '@angular/common'
 })
 export class GameComponent {
   currentScore = 0;
-  totalPossibleScore = 100; // Fixed total score of 100
+  totalPossibleScore = 100; 
   progressPercentage = 0;
   itemsSorted = 0;
-  totalItems = 20; // Fixed number of items
+  totalItems = 20; 
   feedback = '';
   feedbackClass = '';
+  isGameComplete = false;
   
   availableItems = [...availableItems];
   trashBin: WasteItem[] = [];
@@ -39,6 +40,7 @@ export class GameComponent {
     // Update progress percentage
     this.progressPercentage = this.currentScore; // Since each item is worth 5 points, total is 100
     this.itemsSorted = this.trashBin.length + this.recycleBin.length;
+    this.checkGameCompletion();
   }
 
   drop(event: CdkDragDrop<WasteItem[]>, binType?: 'trash' | 'recycle') {
@@ -90,6 +92,49 @@ export class GameComponent {
     this.updateScores();
   }
 
+  triggerConfetti() {
+    const duration = 3000;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min: number, max: number) {
+      return Math.random() * (max - min) + min;
+    }
+
+    const interval: any = setInterval(function() {
+      const timeLeft = duration - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+
+      // Use confetti twice for denser effect
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+      });
+
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+      });
+    }, 250);
+  }
+
+  checkGameCompletion() {
+    const totalSortedCorrectly = this.trashBin.length + this.recycleBin.length;
+    const allItemsSorted = totalSortedCorrectly === this.totalItems;
+    const perfectScore = this.currentScore === this.totalPossibleScore;
+
+    if (allItemsSorted && perfectScore && !this.isGameComplete) {
+      this.isGameComplete = true;
+      this.triggerConfetti();
+    }
+  }
+
   resetGame() {
     this.currentScore = 0;
     this.progressPercentage = 0;
@@ -99,5 +144,6 @@ export class GameComponent {
     this.availableItems = [...availableItems];
     this.trashBin = [];
     this.recycleBin = [];
+    this.isGameComplete = false;
   }
 }
