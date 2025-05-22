@@ -16,42 +16,45 @@ import confetti from 'canvas-confetti';
   standalone: true,
   imports: [NavComponent, CdkDropList, CdkDrag],
   templateUrl: './game.component.html',
-  styleUrl: './game.component.css'
+  styleUrl: './game.component.css',
 })
 export class GameComponent {
   currentScore = 0;
-  totalPossibleScore = 100; 
+  totalPossibleScore = 100;
   progressPercentage = 0;
   itemsSorted = 0;
-  totalItems = 20; 
+  totalItems = 20;
   feedback = '';
   feedbackClass = '';
   isGameComplete = false;
-  
+
   availableItems = [...availableItems];
   trashBin: WasteItem[] = [];
   recycleBin: WasteItem[] = [];
 
   updateScores() {
-    // Calculate current score
-    this.currentScore = this.trashBin.reduce((total, item) => total + item.points, 0) +
-                        this.recycleBin.reduce((total, item) => total + item.points, 0);
-    
-    // Update progress percentage
-    this.progressPercentage = this.currentScore; // Since each item is worth 5 points, total is 100
+    this.currentScore =
+      this.trashBin.reduce((total, item) => total + item.points, 0) +
+      this.recycleBin.reduce((total, item) => total + item.points, 0);
+
+    this.progressPercentage = this.currentScore;
     this.itemsSorted = this.trashBin.length + this.recycleBin.length;
     this.checkGameCompletion();
   }
 
   drop(event: CdkDragDrop<WasteItem[]>, binType?: 'trash' | 'recycle') {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     } else {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex,
+        event.currentIndex
       );
 
       if (binType) {
@@ -63,24 +66,24 @@ export class GameComponent {
   }
 
   checkCorrectBin(item: WasteItem, binType: 'trash' | 'recycle') {
-    const isCorrect = (
+    const isCorrect =
       (binType === 'trash' && item.type === 'trash') ||
-      (binType === 'recycle' && item.type === 'recyclable')
-    );
+      (binType === 'recycle' && item.type === 'recyclable');
 
     if (isCorrect) {
       this.feedback = `Great job! ${item.name} belongs in the ${binType} bin!`;
       this.feedbackClass = 'correct';
     } else {
-      // Move item back to available items
       if (binType === 'trash') {
-        this.trashBin = this.trashBin.filter(i => i.id !== item.id);
+        this.trashBin = this.trashBin.filter((i) => i.id !== item.id);
       } else {
-        this.recycleBin = this.recycleBin.filter(i => i.id !== item.id);
+        this.recycleBin = this.recycleBin.filter((i) => i.id !== item.id);
       }
       this.availableItems.push(item);
-      
-      this.feedback = `Oops! ${item.name} belongs in the ${item.type === 'trash' ? 'trash' : 'recycling'} bin!`;
+
+      this.feedback = `Oops! ${item.name} belongs in the ${
+        item.type === 'trash' ? 'trash' : 'recycling'
+      } bin!`;
       this.feedbackClass = 'incorrect';
     }
 
@@ -100,7 +103,7 @@ export class GameComponent {
       return Math.random() * (max - min) + min;
     }
 
-    const interval: any = setInterval(function() {
+    const interval: any = setInterval(function () {
       const timeLeft = duration - Date.now();
 
       if (timeLeft <= 0) {
@@ -109,17 +112,16 @@ export class GameComponent {
 
       const particleCount = 50 * (timeLeft / duration);
 
-      // Use confetti twice for denser effect
       confetti({
         ...defaults,
         particleCount,
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
       });
 
       confetti({
         ...defaults,
         particleCount,
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
       });
     }, 250);
   }

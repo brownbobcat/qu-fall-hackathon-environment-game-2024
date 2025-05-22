@@ -1,112 +1,109 @@
-        <div class="game-wrapper">
-            <app-nav />
-            <div class="desc">
-                <p>Kindly drag and drop the items below in their respective bins</p>
-            </div>
-            <main>
-        <!-- Enhanced Score Display -->
-        <div class="score-container">
-            <div class="score-cards">
-              <div class="score-card">
-                <h3>Current Score</h3>
-                <div class="score-value">{{ currentScore }}/{{ totalPossibleScore }}</div>
-              </div>
-              <div class="score-card">
-                <h3>Progress</h3>
-                <div class="progress-bar">
-                  <div class="progress-fill" [style.width]="progressPercentage + '%'">
-                    {{ progressPercentage }}%
-                  </div>
-                </div>
-              </div>
-              <div class="score-card">
-                <h3>Items Sorted</h3>
-                <div class="score-value">{{ itemsSorted }}/{{ totalItems }}</div>
-              </div>
-            </div>
-            @if (feedback) {
-              <div class="feedback" [class]="feedbackClass">{{ feedback }}</div>
-            }
+<div class="game-wrapper">
+  <app-nav />
+  <div class="desc">
+    <p>Kindly drag and drop the items below in their respective bins</p>
+  </div>
+  <main>
+    <div class="score-container">
+      <div class="score-cards">
+        <div class="score-card">
+          <h3>Current Score</h3>
+          <div class="score-value">
+            {{ currentScore }}/{{ totalPossibleScore }}
           </div>
-      
-              <!-- Bins Container -->
-              <div class="bins-container">
-                <!-- Trash Bin -->
-                <div class="bin-column">
-                    <div class="trash">
-                  <h2>Trash Bin</h2>
-                  <img src="trash.png" class="img" width="" alt="">
-                </div>
-                  <div
-                    cdkDropList
-                    #trashList="cdkDropList"
-                    [cdkDropListData]="trashBin"
-                    [cdkDropListConnectedTo]="[itemsList]"
-                    class="bin trash-bin"
-                    (cdkDropListDropped)="drop($event, 'trash')">
-                    @for (item of trashBin; track item.id) {
-                      <div class="waste-item" cdkDrag>
-                        <!-- <img [src]="item.image" [alt]="item.name"> -->
-                        <span>{{ item.name }}</span>
-                      </div>
-                    }
-                  </div>
-                </div>
-      
-                <!-- Recycle Bin -->
-                <div class="bin-column">
-                    <div class="trash">
-                        <h2>Recycle Bin</h2>
-                        <img src="recycle.png" class="img" width="" alt="">
-                    </div>
-                 
-                  <div
-                    cdkDropList
-                    #recycleList="cdkDropList"
-                    [cdkDropListData]="recycleBin"
-                    [cdkDropListConnectedTo]="[itemsList]"
-                    class="bin recycle-bin"
-                    (cdkDropListDropped)="drop($event, 'recycle')">
-                    @for (item of recycleBin; track item.id) {
-                      <div class="waste-item" cdkDrag>
-                        <!-- <img [src]="item.image" [alt]="item.name"> -->
-                        <span>{{ item.name }}</span>
-                      </div>
-                    }
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div class="score-card">
+          <h3>Progress</h3>
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width]="progressPercentage + '%'">
+              {{ progressPercentage }}%
+            </div>
+          </div>
+        </div>
+        <div class="score-card">
+          <h3>Items Sorted</h3>
+          <div class="score-value">{{ itemsSorted }}/{{ totalItems }}</div>
+        </div>
+      </div>
+      @if (feedback) {
+      <div class="feedback" [class]="feedbackClass">{{ feedback }}</div>
+      }
+    </div>
 
-              @if (isGameComplete) {
-                <div class="celebration-message">
-                  <h2>🎉 Congratulations! 🎉</h2>
-                  <p>You've successfully sorted all items and achieved a perfect score!</p>
-                  <p>Score: {{ currentScore }}/{{ totalPossibleScore }}</p>
-                  <button class="celebration-button" (click)="resetGame()">Play Again</button>
-                </div>
-              }
-      
-              <!-- Available Items -->
-              <div class="items-section">
-                <h2>Sort These Items!</h2>
-                <div
-                  cdkDropList
-                  #itemsList="cdkDropList"
-                  [cdkDropListData]="availableItems"
-                  [cdkDropListConnectedTo]="[trashList, recycleList]"
-                  class="items-list"
-                  (cdkDropListDropped)="drop($event)">
-                  @for (item of availableItems; track item.id) {
-                    <div class="waste-item" cdkDrag>
-                      <!-- <img [src]="item.image" [alt]="item.name"> -->
-                      <span>{{ item.name }}</span>
-                    </div>
-                  }
-                </div>
-              </div>
-      
-              <!-- Reset Button -->
-              <button class="reset-button" (click)="resetGame()">Start Over</button>
-            </main>
+    <div class="bins-container">
+      <div class="bin-column">
+        <div class="trash">
+          <h2>Trash Bin</h2>
+          <img src="trash.png" class="img" width="" alt="" />
+        </div>
+        <div
+          cdkDropList
+          #trashList="cdkDropList"
+          [cdkDropListData]="trashBin"
+          [cdkDropListConnectedTo]="[itemsList]"
+          class="bin trash-bin"
+          (cdkDropListDropped)="drop($event, 'trash')"
+        >
+          @for (item of trashBin; track item.id) {
+          <div class="waste-item" cdkDrag>
+            <span>{{ item.name }}</span>
           </div>
- 
+          }
+        </div>
+      </div>
+
+      <div class="bin-column">
+        <div class="trash">
+          <h2>Recycle Bin</h2>
+          <img src="recycle.png" class="img" width="" alt="" />
+        </div>
+
+        <div
+          cdkDropList
+          #recycleList="cdkDropList"
+          [cdkDropListData]="recycleBin"
+          [cdkDropListConnectedTo]="[itemsList]"
+          class="bin recycle-bin"
+          (cdkDropListDropped)="drop($event, 'recycle')"
+        >
+          @for (item of recycleBin; track item.id) {
+          <div class="waste-item" cdkDrag>
+            <span>{{ item.name }}</span>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    @if (isGameComplete) {
+    <div class="celebration-message">
+      <h2>🎉 Congratulations! 🎉</h2>
+      <p>You've successfully sorted all items and achieved a perfect score!</p>
+      <p>Score: {{ currentScore }}/{{ totalPossibleScore }}</p>
+      <button class="celebration-button" (click)="resetGame()">
+        Play Again
+      </button>
+    </div>
+    }
+
+    <div class="items-section">
+      <h2>Sort These Items!</h2>
+      <div
+        cdkDropList
+        #itemsList="cdkDropList"
+        [cdkDropListData]="availableItems"
+        [cdkDropListConnectedTo]="[trashList, recycleList]"
+        class="items-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        @for (item of availableItems; track item.id) {
+        <div class="waste-item" cdkDrag>
+          <span>{{ item.name }}</span>
+        </div>
+        }
+      </div>
+    </div>
+
+    <button class="reset-button" (click)="resetGame()">Start Over</button>
+  </main>
+</div>
